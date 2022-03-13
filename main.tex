@@ -1,0 +1,27 @@
+% !TEX TS-program = uplatex
+% !TEX encoding = UTF-8
+%
+\documentclass[
+  uplatex,dvipdfmx,
+  tate,book,twoside,
+  paper={153.25mm ,220mm}, % 1/32 of A0U
+  baselineskip=2.0zh,
+  hanging_punctuation,
+]{jlreq}
+%
+\usepackage{bxpapersize}
+\usepackage{catchfilebetweentags}
+\usepackage{xcolor}
+\usepackage{settings} % <-- jlreq & package settings
+\usepackage{thefonts} % <-- fonts settings
+%
+\title{史記會注考證}
+\author{}
+\date{}
+%
+\begin{document}
+  \maketitle
+  \setcounter{page}{1}
+  \input{../contents/chapter001} % 史記索隱序
+  \input{../contents/chapter002} % 史記索隱後序
+\end{document}
