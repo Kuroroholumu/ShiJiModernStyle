@@ -1,24 +1,24 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ShiJiModernStyle}[2022/03/15]
+\ProvidesClass{ShiJiModernStyle}[2022/03/15 modern style typesetting for SHIJI]
 \RequirePackage{xcolor}
 \RequirePackage{catchfilebetweentags}
 %
 % ===== Modern Style: jlreq ================================================== % 
 %
 \LoadClass[
-  uplatex,dvipdfmx,tate,book,twoside,
+  uplatex,tate,book,twoside,
   paper={153.25mm ,220mm}, % 1/32 of A0U
   baselineskip=2.0zh,
   hanging_punctuation,
 ]{jlreq}
 %
 \jlreqsetup{
-  reference_mark=interlinear, %                   endnote 設定
+  reference_mark=interlinear, % endnote 設定
   endnote_position=paragraph,
   endnote_second_indent=3.75\jlreq@zw,
 }
 %
-\NewBlockHeading{prechapter}{1}{%                preShiji 自訂標題
+\NewBlockHeading{prechapter}{1}{% 標題風格: preShiji
   indent=0\jlreq@zw,
   lines=3,
   font={\Large\mainfont},
@@ -29,7 +29,7 @@
   number=false,
   pagebreak=begin_with_odd_page,
 }
-\RenewBlockHeading{chapter}{1}{%                   chapter 自訂標題
+\RenewBlockHeading{chapter}{1}{% 標題風格: chapter 
   indent=0\jlreq@zw,
   lines=3,
   label_format={史記第\thechapter},
@@ -43,7 +43,7 @@
 %
 \renewcommand{\jlreqparindent}{2\zw}
 %
-\NewPageStyle{preShiji}{%                        preShiji 頁眉與頁碼
+\NewPageStyle{preShiji}{% 頁眉與頁碼 preShiji 
   tate,
   running_head_font={\footnotesize\notefont},
   nombre_font={\footnotesize\notefont},
@@ -55,7 +55,7 @@
   even_running_head={史記會注考證},
 }
 %
-\NewPageStyle{Shiji}{%                              Shiji 頁眉與頁碼
+\NewPageStyle{Shiji}{% 頁眉與頁碼 Shiji 
   tate,
   running_head_font={\footnotesize\notefont},
   nombre_font={\footnotesize\notefont},
@@ -71,7 +71,7 @@
 %
 \newif\ifmodernstyle\modernstyletrue
 %
-\def\parswitch{%                                          分段開關
+\newcommand{\parswitch}{%                                          分段開關
   \ifmodernstyle \par \else \nolinebreak \fi
 }
 %
@@ -86,15 +86,15 @@
   0.00,0.85,1.00,0.00
 }
 %
-\def\KAOZ{\textcolor{shuiro}{【考證】}\hspace{.5zw}}%   「考證」
+\newcommand{\KAOZ}{\textcolor{shuiro}{【考證】}\hspace{.5zw}}%   「考證」
 %
-\def\SYIN{\textcolor{shuiro}{【索隱】}\hspace{.5zw}}%   「索隱」
+\newcommand{\SYIN}{\textcolor{shuiro}{【索隱】}\hspace{.5zw}}%   「索隱」
 %
-\def\JJIE{\textcolor{shuiro}{【集解】}\hspace{.5zw}}%   「集解」
+\newcommand{\JJIE}{\textcolor{shuiro}{【集解】}\hspace{.5zw}}%   「集解」
 %
-\def\ZHYI{\textcolor{shuiro}{【正義】}\hspace{.5zw}}%   「正義」
+\newcommand{\ZHYI}{\textcolor{shuiro}{【正義】}\hspace{.5zw}}%   「正義」
 %
-% ===== Modern Style: DIY Commands =========================================== %
+% ===== Modern Style: DIY Fonts ============================================== %
 %
 % CJK fontの設定
 % Ref: https://texwiki.texjp.org/?upTeX%2CupLaTeX
