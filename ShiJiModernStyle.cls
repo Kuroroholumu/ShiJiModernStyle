@@ -1,5 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ShiJiModernStyle}[2022/03/15 modern style typesetting for SHIJI]
+\ProvidesClass{ShiJiModernStyle}[2022/03/24 modern style typesetting for SHIJI]
+%
 \RequirePackage{xcolor}
 \RequirePackage{catchfilebetweentags}
 %
@@ -7,18 +8,20 @@
 %
 \LoadClass[
   uplatex,tate,book,twoside,
-  paper={153.25mm ,220mm}, % 1/32 of A0U
+  paper={153.25mm,220mm}, % 1/32 of A0U
   baselineskip=2.0zh,
   hanging_punctuation,
 ]{jlreq}
 %
 \jlreqsetup{
-  reference_mark=interlinear, % endnote 設定
+  % endnote 設定
+  reference_mark=interlinear,
   endnote_position=paragraph,
   endnote_second_indent=3.75\jlreq@zw,
 }
 %
-\NewBlockHeading{prechapter}{1}{% 標題風格: preShiji
+\NewBlockHeading{prechapter}{1}{%
+  % 標題風格: preShiji
   indent=0\jlreq@zw,
   lines=3,
   font={\Large\mainfont},
@@ -29,7 +32,8 @@
   number=false,
   pagebreak=begin_with_odd_page,
 }
-\RenewBlockHeading{chapter}{1}{% 標題風格: chapter 
+\RenewBlockHeading{chapter}{1}{%
+  % 標題風格: chapter 
   indent=0\jlreq@zw,
   lines=3,
   label_format={史記第\thechapter},
@@ -43,7 +47,8 @@
 %
 \renewcommand{\jlreqparindent}{2\zw}
 %
-\NewPageStyle{preShiji}{% 頁眉與頁碼 preShiji 
+\NewPageStyle{preShiji}{%
+  % 頁眉與頁碼 preShiji 
   tate,
   running_head_font={\footnotesize\notefont},
   nombre_font={\footnotesize\notefont},
@@ -55,7 +60,8 @@
   even_running_head={史記會注考證},
 }
 %
-\NewPageStyle{Shiji}{% 頁眉與頁碼 Shiji 
+\NewPageStyle{Shiji}{%
+  % 頁眉與頁碼 Shiji 
   tate,
   running_head_font={\footnotesize\notefont},
   nombre_font={\footnotesize\notefont},
@@ -71,28 +77,20 @@
 %
 \newif\ifmodernstyle\modernstyletrue
 %
-\newcommand{\parswitch}{%                                          分段開關
-  \ifmodernstyle \par \else \nolinebreak \fi
+\newcommand{\parswitch}{%
+  \ifmodernstyle \par \else \nolinebreak \fi % 分段開關
 }
 %
-\newcommand{\loadnotes}[2]{%                              注插入
-% package: catchfilebetweentags
-% #1, filename; #2, tag
+\newcommand{\loadnotes}[2]{% 注插入
   \endnote{\notefont\ExecuteMetaData[#1]{#2}}
 }
 %
-\definecolor{shuiro}{cmyk}{%                              朱色
-% package: xcolor
-  0.00,0.85,1.00,0.00
-}
+\definecolor{shuiro}{cmyk}{0.00,0.85,1.00,0.00} % 朱色
 %
-\newcommand{\KAOZ}{\textcolor{shuiro}{【考證】}\hspace{.5zw}}%   「考證」
-%
-\newcommand{\SYIN}{\textcolor{shuiro}{【索隱】}\hspace{.5zw}}%   「索隱」
-%
-\newcommand{\JJIE}{\textcolor{shuiro}{【集解】}\hspace{.5zw}}%   「集解」
-%
-\newcommand{\ZHYI}{\textcolor{shuiro}{【正義】}\hspace{.5zw}}%   「正義」
+\newcommand{\KAOZ}{\textcolor{shuiro}{【考證】}\hspace{.5zw}} % 考證
+\newcommand{\SYIN}{\textcolor{shuiro}{【索隱】}\hspace{.5zw}} % 索隱
+\newcommand{\JJIE}{\textcolor{shuiro}{【集解】}\hspace{.5zw}} % 集解
+\newcommand{\ZHYI}{\textcolor{shuiro}{【正義】}\hspace{.5zw}} % 正義
 %
 % ===== Modern Style: DIY Fonts ============================================== %
 %
